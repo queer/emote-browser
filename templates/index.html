@@ -19,10 +19,8 @@
             height: 32px;
         }
 
-        img.emote-img[alt]:after {
-            display: block;
-            font-size: 12px;
-            content: "Broken emote :(";
+        img.emote-img[alt]:before {
+            background: #AAAAAA;
         }
     </style>
 </head>
@@ -47,7 +45,7 @@
                         for(var i = 0; i < res.length; i++) {
                             out += '<div class="emote-wrapper">';
                             out += ':' + res[i][0] + '-' + res[i][2] + ':<br/>';
-                            out += '<img class="emote-img" src="https://cdn.discordapp.com/emojis/' + res[i][1] + '.png" />';
+                            out += '<img class="emote-img" src="https://cdn.discordapp.com/emojis/' + res[i][1] + '.png" alt="Broken emote :(" />';
                             out += '</div>';
                         }
                         $('#results').html(out);
