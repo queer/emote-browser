@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>amybot emote browser</title>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="amybot emote browser">
+</head>
+<body>
+<div id="emotes">
+    <input class="search" placeholder="Search..."/>
+    <ul class="list">
+        <li>
+            {% for emote in emotes %}
+                :{{ emote[0] }}-{{ emote[1] }}: - https://cdn.discordapp.com/emojis/{{ emote[2] }}.png
+            {% endfor %}
+        </li>
+    </ul>
+</div>
+
+<script>
+    var list = new List('emotes', {});
+</script>
+</body>
+</html>
