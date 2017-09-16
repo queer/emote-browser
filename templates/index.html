@@ -3,27 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <title>amybot emote browser</title>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="amybot emote browser">
 </head>
 <body>
-<!--
 <div id="emotes">
-    <input class="search" placeholder="Search..."/>
-    <ul class="list">
-        {% for emote in emotes %}
-            <li>
-                :{{ emote[0] }}-{{ emote[2] }}: - https://cdn.discordapp.com/emojis/{{ emote[1] }}.png
-            </li>
-        {% endfor %}
-    </ul>
+    <input id="search" placeholder="Emote name goes here"/><button onclick="search();">Search!</button>
+    <div id="results">
+    </div>
 </div>
-
 <script>
-    var list = new List('emotes', {});
+    function search() {
+        $('#search').each(function(i, e) {
+            $.ajax({
+                url: "/search/" + $(e).val(),
+                success: function(data) {
+                    if(data.indexOf("Search") === 0) {
+                        $('#results').text(data);
+                    } else {
+                        $('#results').text(JSON.parse(data));
+                    }
+                }
+            });
+        });
+    }
 </script>
--->
-TODO
 </body>
 </html>

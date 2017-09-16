@@ -21,23 +21,16 @@ def search(emote):
     conn = psycopg2.connect(dbname=db_name, user=db_username, password=db_password, host=db_host)
     c = conn.cursor()
     c.execute('''SELECT name, id, row_number() OVER (PARTITION BY emotes.name ORDER BY emotes.guild) AS 
-                 discrim FROM emotes WHERE name = %s ORDER BY name, discrim ASC;''', (emote,))
+                 discrim FROM emotes WHERE name = '%s' ORDER BY name, discrim ASC;''', (emote,))
     res = json.dumps(c.fetchall())
     c.close()
     conn.close()
-    return res;
+    return res
 
 
-# noinspection SqlResolve
 @app.route('/')
 def emote_list():
-    # conn = psycopg2.connect(dbname=db_name, user=db_username, password=db_password, host=db_host)
-    # c = conn.cursor()
-    # c.execute('''SELECT name, id, row_number() OVER (PARTITION BY emotes.name ORDER BY emotes.guild) AS
-    #             discrim FROM emotes ORDER BY name, discrim ASC;''')
     render = render_template('index.html')
-    # c.close()
-    # conn.close()
     return render
 
 
