@@ -35,11 +35,19 @@
 </head>
 <body>
 <div id="emotes">
-    <input id="search" placeholder="Emote name goes here"/><button onclick="search();">Search!</button>
+    <form id="search-form">
+        <input id="search" placeholder="Emote name goes here"/>
+        <input type="submit" value="Search!" />
+    </form>
     <div id="results">
     </div>
 </div>
 <script>
+    $('#search-form').submit(function () {
+        search();
+        return false;
+    });
+
     function search() {
         $('#search').each(function(i, e) {
             $.ajax({
