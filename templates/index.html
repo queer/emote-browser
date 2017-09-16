@@ -8,7 +8,7 @@
     <meta name="description" content="amybot emote browser">
     <style>
         div.emote-wrapper {
-            display: inline-block;
+            display: inline-flex;
             border: 1px solid rgba(0, 0, 0, 0.25);
             width: 128px;
             height: 128px;
@@ -23,6 +23,12 @@
 
         img.emote-img[alt]:before {
             background: #AAAAAA;
+        }
+
+        span.emote-span {
+            width: 128px;
+            max-width: 128px;
+            display: block;
         }
     </style>
 </head>
@@ -46,7 +52,7 @@
                         var out = "";
                         for(var i = 0; i < res.length; i++) {
                             out += '<div class="emote-wrapper">';
-                            out += ':' + res[i][0] + '-' + res[i][2] + ':<br/>';
+                            out += '<span class="emote-span">:' + res[i][0] + '-' + res[i][2] + ':</span>';
                             out += '<center><img class="emote-img" src="https://cdn.discordapp.com/emojis/' + res[i][1] + '.png" alt="Couldn\'t get emote :(" /></center>';
                             out += '</div>';
                         }
