@@ -16,7 +16,7 @@ def emote_list():
     c = conn.cursor()
     c.execute('''SELECT name, id, row_number() OVER (PARTITION BY emotes.name ORDER BY emotes.guild) AS 
                  discrim FROM emotes ORDER BY name, discrim ASC;''')
-    render = render_template('', emotes=c.fetchall())
+    render = render_template('index.html', emotes=c.fetchall())
     c.close()
     conn.close()
     return render
