@@ -11,6 +11,11 @@
             display: inline-block;
             border: 1px solid rgba(0, 0, 0, 0.25);
         }
+
+        img.emote-img {
+            width: 32px;
+            height: 32px;
+        }
     </style>
 </head>
 <body>
@@ -34,7 +39,7 @@
                         for(var i = 0; i < res.length; i++) {
                             out += '<div class="emote-wrapper">';
                             out += ':' + res[i][0] + '-' + res[i][2] + ':<br/>';
-                            out += '<img src="https://cdn.discordapp.com/emojis/' + res[i][1] + '.png" />';
+                            out += '<img class="emote-img" src="https://cdn.discordapp.com/emojis/' + res[i][1] + '.png" />';
                             out += '</div>';
                         }
                         $('#results').html(out);
