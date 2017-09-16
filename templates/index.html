@@ -11,11 +11,11 @@
 <div id="emotes">
     <input class="search" placeholder="Search..."/>
     <ul class="list">
-        <li>
-            {% for emote in emotes %}
+        {% for emote in emotes %}
+            <li>
                 :{{ emote[0] }}-{{ emote[1] }}: - https://cdn.discordapp.com/emojis/{{ emote[2] }}.png
-            {% endfor %}
-        </li>
+            </li>
+        {% endfor %}
     </ul>
 </div>
 
