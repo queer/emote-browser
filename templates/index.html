@@ -6,6 +6,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="amybot emote browser">
+    <style>
+        div.emote-wrapper {
+            display: inline-block;
+            border: 1px solid rgba(0, 0, 0, 0.25);
+        }
+    </style>
 </head>
 <body>
 <div id="emotes">
@@ -22,7 +28,15 @@
                     if(data.indexOf("Search") === 0) {
                         $('#results').text(data);
                     } else {
-                        $('#results').text(data);
+                        var res = JSON.parse(data);
+                        // Build this hideous thing
+                        var out = "";
+                        for(var i = 0; i < res.length; i++) {
+                            out += '<div class="emote-wrapper">';
+                            out += ':' + res[i][0] + '-' + res[i][2] + ':<br/>';
+                            out += '<img src="https://cdn.discordapp.com/emojis/' + res[i][1] + '.png" />';
+                            out += '</div>';
+                        }
                     }
                 }
             });
