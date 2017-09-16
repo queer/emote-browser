@@ -10,13 +10,13 @@
         div.emote-wrapper {
             display: inline-block;
             border: 1px solid rgba(0, 0, 0, 0.25);
-            width: 64px;
-            height: 64px;
+            width: 128px;
+            height: 128px;
         }
 
         img.emote-img {
-            width: 32px;
-            height: 32px;
+            width: 64px;
+            height: 64px;
         }
 
         img.emote-img[alt]:before {
@@ -45,7 +45,7 @@
                         for(var i = 0; i < res.length; i++) {
                             out += '<div class="emote-wrapper">';
                             out += ':' + res[i][0] + '-' + res[i][2] + ':<br/>';
-                            out += '<center><img class="emote-img" src="https://cdn.discordapp.com/emojis/' + res[i][1] + '.png" alt="Broken emote :(" /></center>';
+                            out += '<center><img class="emote-img" src="https://cdn.discordapp.com/emojis/' + res[i][1] + '.png" alt="Couldn\'t get emote :(" /></center>';
                             out += '</div>';
                         }
                         $('#results').html(out);
