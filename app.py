@@ -8,7 +8,7 @@ app = Flask(__name__)
 db_username = os.getenv("POSTGRES_USERNAME")
 db_password = os.getenv("POSTGRES_PASSWORD")
 db_name = "amy"
-db_host = "postgres.shared-storage"
+db_host = "postgres.amybot"
 
 
 # noinspection SqlResolve
