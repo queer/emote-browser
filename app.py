@@ -15,8 +15,8 @@ db_host = "postgres.amybot"
 @app.route('/search/<emote>')
 def search(emote):
     emote = str(emote)
-    if len(emote) < 3 or len(emote) > 32:
-        return "Search must fulfill 3 < search < 32."
+    if len(emote) < 2 or len(emote) > 32:
+        return "Search must fulfill 2 < search < 32."
 
     conn = psycopg2.connect(dbname=db_name, user=db_username, password=db_password, host=db_host)
     c = conn.cursor()
